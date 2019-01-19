@@ -1,18 +1,12 @@
-package pl.olx;
+package pl.application;
 
 /*
         * To change this license header, choose License Headers in Project Properties.
         * To change this template file, choose Tools | Templates
         * and open the template in the editor.
         */
-        import java.awt.TextField;
         import java.util.Scanner;
-        import javax.swing.JFrame;
-        import javax.swing.JOptionPane;
-        import javax.swing.JTextField;
-        import javax.swing.UIManager;
-        import javax.swing.UIManager.LookAndFeelInfo;
-        import javax.swing.UnsupportedLookAndFeelException;
+
 /**
  *
  * @author Paulina
