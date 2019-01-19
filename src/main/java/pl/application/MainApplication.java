@@ -1,11 +1,12 @@
 package pl.application;
 
 /*
-        * To change this license header, choose License Headers in Project Properties.
-        * To change this template file, choose Tools | Templates
-        * and open the template in the editor.
-        */
-        import java.util.Scanner;
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.io.File;
+import java.util.Scanner;
 
 /**
  *
@@ -14,11 +15,11 @@ package pl.application;
 public class MainApplication extends javax.swing.JFrame {
 
 
-    double cena_wiejska = 34.99;
-    double cena_margarita = 27.99;
-    double cena_pepsi = 4.0;
-    double cena_cola = 4.5;
-    double cena_sok = 2.46;
+    double cena_wiejska=34.99;
+    double cena_margarita=27.99;
+    double cena_pepsi=4.0;
+    double cena_cola=4.5;
+    double cena_sok=2.46;
 
     /**
      * Creates new form Pizzeria_aplikacja
@@ -51,14 +52,13 @@ public class MainApplication extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton5 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
         jlblTax9 = new javax.swing.JLabel();
         jlblTax10 = new javax.swing.JLabel();
         jlblTax11 = new javax.swing.JLabel();
         kosztPizzy = new javax.swing.JLabel();
+        kosztNapojow = new javax.swing.JLabel();
+        kosztCalkowity = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -92,13 +92,15 @@ public class MainApplication extends javax.swing.JFrame {
         jLabel1.setText("System Zarządzania Pizzerią");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240), 8));
 
+        ClassLoader classLoader = getClass().getClassLoader();
+
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\pauli\\Desktop\\pizza.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(classLoader.getResource("pizza.jpg"))); // NOI18N
         jLabel4.setText("jLabel3");
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240), 8));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\pauli\\Desktop\\pizza.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(classLoader.getResource("pizza.jpg"))); // NOI18N
         jLabel5.setText("jLabel3");
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 240, 240), 8));
 
@@ -215,13 +217,6 @@ public class MainApplication extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton5.setText("jButton5");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -229,9 +224,7 @@ public class MainApplication extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5)
-                                .addGap(147, 147, 147))
+                                .addGap(233, 233, 233))
         );
         jPanel4Layout.setVerticalGroup(
                 jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,29 +232,11 @@ public class MainApplication extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                                 .addContainerGap())
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(138, 138, 138)
-                                .addComponent(jButton5)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(988, 168, 400, 630));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102), 12));
-
-        jTextField12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
-
-        jTextField13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
-            }
-        });
 
         jlblTax9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jlblTax9.setText("Koszt Napojów");
@@ -274,6 +249,10 @@ public class MainApplication extends javax.swing.JFrame {
 
         kosztPizzy.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        kosztNapojow.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        kosztCalkowity.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -284,12 +263,12 @@ public class MainApplication extends javax.swing.JFrame {
                                         .addComponent(jlblTax10, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jlblTax9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jlblTax11, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(kosztPizzy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap())
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(kosztPizzy, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                        .addComponent(kosztNapojow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(kosztCalkowity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(37, 37, 37))
         );
         jPanel5Layout.setVerticalGroup(
                 jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,15 +277,15 @@ public class MainApplication extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jlblTax10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(kosztPizzy, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addGap(23, 23, 23)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jlblTax9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                        .addComponent(kosztNapojow, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jlblTax11, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(33, Short.MAX_VALUE))
+                                        .addComponent(kosztCalkowity, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 480, 230));
@@ -343,7 +322,7 @@ public class MainApplication extends javax.swing.JFrame {
         });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton4.setText("Paragon");
+        jButton4.setText("Zamów");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -523,7 +502,7 @@ public class MainApplication extends javax.swing.JFrame {
         String s = jTextField9.getText();
         System.out.println(s);
         int kosztP = Integer.parseInt(s);
-        kosztP = kosztP * 20;
+        kosztP = kosztP*20;
         s = "" + kosztP;
         kosztPizzy.setText(s);
         // TODO add your handling code here:
@@ -539,9 +518,6 @@ public class MainApplication extends javax.swing.JFrame {
         jTextField9.setText(null);
         jTextField10.setText(null);
         jTextField11.setText(null);
-        jTextField14.setText(null);
-        jTextField12.setText(null);
-        jTextField13.setText(null);
         jTextArea1.setText(null);
 
 // TODO add your handling code here:
@@ -551,49 +527,36 @@ public class MainApplication extends javax.swing.JFrame {
         System.exit(0);   // TODO add your handling code here:
     }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {
-        double cena_wiejska = 34.9;
+        double cena_wiejska=34.9;
         int ilosc_wiejska;
         Scanner input2 = new Scanner(System.in);
-        ilosc_wiejska = input2.nextInt();
+        ilosc_wiejska=input2.nextInt();
         double suma_wiejska = cena_wiejska * ilosc_wiejska;// TODO add your handling code here:
     }
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {
-        double cena_hawajska = 24.9;
+        double cena_hawajska=24.9;
         int ilosc_hawajska;
         Scanner input1 = new Scanner(System.in);
-        ilosc_hawajska = input1.nextInt();
+        ilosc_hawajska=input1.nextInt();
         double suma_hawajska = cena_hawajska * ilosc_hawajska;
     }
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {
 
-        double cena_margarita = 19.9;
+        double cena_margarita=19.9;
         int ilosc_margarita;
         Scanner input3 = new Scanner(System.in);
-        ilosc_margarita = input3.nextInt();
+        ilosc_margarita=input3.nextInt();
         double suma_margarita = cena_margarita * ilosc_margarita;// TODO add your handling code here:
     }
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
-
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
@@ -625,6 +588,9 @@ public class MainApplication extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -639,7 +605,6 @@ public class MainApplication extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -654,9 +619,6 @@ public class MainApplication extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -678,6 +640,8 @@ public class MainApplication extends javax.swing.JFrame {
     private javax.swing.JLabel jlblTax8;
     private javax.swing.JLabel jlblTax9;
     private javax.swing.JLabel jlblTotal;
+    private javax.swing.JLabel kosztCalkowity;
+    private javax.swing.JLabel kosztNapojow;
     private javax.swing.JLabel kosztPizzy;
     // End of variables declaration
 }
