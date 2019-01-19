@@ -492,12 +492,22 @@ public class MainApplication extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        String s = jTextField9.getText();
-        System.out.println(s);
-        int kosztP = Integer.parseInt(s);
-        kosztP = kosztP*20;
-        s = "" + kosztP;
-        kosztPizzy.setText(s);
+        //pizza
+        int cenaHawajska = Integer.parseInt(jTextField9.getText());
+        int cenaWiejska = Integer.parseInt(jTextField11.getText());
+        int cenaMargarita = Integer.parseInt(jTextField10.getText());
+        int kosztCalkowityPizzy = (cenaHawajska*22)+(cenaWiejska*24)+(cenaMargarita*15);
+        kosztPizzy.setText(""+kosztCalkowityPizzy);
+
+        //napoje
+        int cenaPepsi = Integer.parseInt(jTextField9.getText());
+        int cenaCola = Integer.parseInt(jTextField11.getText());
+        int cenaSok = Integer.parseInt(jTextField10.getText());
+        int kosztCalkowityNapojow = (cenaPepsi*5)+(cenaCola*6)+(cenaSok*4);
+        kosztNapojow.setText(""+kosztCalkowityNapojow);
+
+        //podsumowanie
+
         // TODO add your handling code here:
     }
 
